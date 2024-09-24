@@ -2,7 +2,7 @@ let cloud = new Cloud(false);
 cloud.InitializeScreen(500, 500, "#2f2f2f");
 cloud.InitMouse();
 for (let name of Object.getOwnPropertyNames(Math)) {
-    globalThis[name] = Math[name];
+    globalThis[name.toLowerCase()] = Math[name];
 }
 cloud.CreateCharacterClass('graph', vars => {
     cloud.Line({x: cloud.c.width/2, y: 0}, {x: cloud.c.width/2, y: cloud.c.height}, "white");
@@ -31,7 +31,7 @@ btn.onclick = () => {
     cloud.ctx.clearRect(0, 0, 500, 500);
     let eqs = equations.value.split(", ");
     eqs.forEach(eq => {
-        graph(x => eval(eq), xScale, yScale);
+        graph(x => eval(eq.toLowerCase()), xScale, yScale);
     });
     function animate() {
         cloud.RunAll();
