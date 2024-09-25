@@ -40,9 +40,9 @@ btn.onclick = () => {
     });
     function animate() {
         cloud.RunAll();
-        let mousex = cloud.mouse.x - 239;
-        let mousey = cloud.mouse.y - 147;
-        document.querySelector('#coords').innerHTML = `(${(mousex - cloud.c.width/2)*xScale}, ${(cloud.c.height/2 - mousey)*yScale})`;
+        let mousex = cloud.mouse.x;
+        let mousey = cloud.mouse.y;
+        document.querySelector('#coords').innerHTML = `(${(mousex - cloud.c.width/2 - 5)*xScale}, ${(cloud.c.height/2 - mousey + 5)*yScale})`;
         requestAnimationFrame(animate);
     }
     animate()
